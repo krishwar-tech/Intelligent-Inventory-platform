@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -26,6 +27,16 @@ public class Procurement {
 
     private LocalDate date;
 
+    private String poNumber;
+
+    private String invoiceRef;
+
+    private String supplierInvoiceNo;
+
+    private LocalDate manufactureDate;
+
+    private LocalDate expiryDate;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
@@ -33,6 +44,10 @@ public class Procurement {
     @ManyToOne
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
+
+    @ManyToOne
+    @JoinColumn(name = "shelf_life_id")
+    private ShelfLife shelfLife;
     
     @ManyToOne
     @JoinColumn(name = "tenant_id")

@@ -5,6 +5,9 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import com.inventory.management.enums.PaymentMode;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 @Data
@@ -28,7 +31,8 @@ public class Sale {
 
     private String paymentStatus;
 
-    private String paymentMode;
+    @Enumerated(EnumType.STRING)
+    private PaymentMode paymentMode;
 
     private BigDecimal cashPaid = BigDecimal.ZERO;
 

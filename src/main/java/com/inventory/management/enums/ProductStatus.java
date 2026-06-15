@@ -1,4 +1,8 @@
 package com.inventory.management.enums;
 
-public class ProductStatus {
+public enum ProductStatus {
+
+    ACTIVE,
+    INACTIVE,
+    PENDING
 }

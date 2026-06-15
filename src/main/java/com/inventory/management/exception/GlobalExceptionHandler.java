@@ -7,6 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.bind.MethodArgumentNotValidException;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -15,7 +20,7 @@ public class GlobalExceptionHandler {
             UserNotFoundException ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.NOT_FOUND.value(),
                 LocalDateTime.now());
 
@@ -27,7 +32,7 @@ public class GlobalExceptionHandler {
             InvalidPasswordException ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.UNAUTHORIZED.value(),
                 LocalDateTime.now());
 
@@ -39,7 +44,7 @@ public class GlobalExceptionHandler {
             ProductNotFoundException ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.NOT_FOUND.value(),
                 LocalDateTime.now());
 
@@ -51,7 +56,7 @@ public class GlobalExceptionHandler {
             DuplicateResourceException ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.BAD_REQUEST.value(),
                 LocalDateTime.now());
 
@@ -63,7 +68,7 @@ public class GlobalExceptionHandler {
             InsufficientStockException ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.BAD_REQUEST.value(),
                 LocalDateTime.now());
 
@@ -75,7 +80,7 @@ public class GlobalExceptionHandler {
             ProcurementNotFoundException ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.NOT_FOUND.value(),
                 LocalDateTime.now());
 
@@ -87,11 +92,40 @@ public class GlobalExceptionHandler {
             SupplierNotFoundException ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.NOT_FOUND.value(),
                 LocalDateTime.now());
 
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, Object>> handleValidation(
+            MethodArgumentNotValidException ex) {
+
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult()
+                .getFieldErrors()
+                .forEach(error ->
+                        errors.put(
+                                error.getField(),
+                                error.getDefaultMessage()));
+
+        Map<String, Object> response = new HashMap<>();
+
+        response.put("success", false);
+
+        response.put("message", "Validation failed");
+
+        response.put("status", HttpStatus.BAD_REQUEST.value());
+
+        response.put("errors", errors);
+
+        response.put("timestamp", LocalDateTime.now());
+
+        return new ResponseEntity<>(
+                response,
+                HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
@@ -99,7 +133,7 @@ public class GlobalExceptionHandler {
             Exception ex) {
 
         ErrorResponse error = new ErrorResponse(
-                ex.getMessage(),
+                false,ex.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 LocalDateTime.now());
 

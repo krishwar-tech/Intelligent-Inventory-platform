@@ -1,4 +1,11 @@
 package com.inventory.management.enums;
 
-public class InventoryActionType {
+public enum InventoryActionType {
+
+    DAMAGE,
+    RETURN,
+    ADJUST_IN,
+    ADJUST_OUT,
+    PURCHASE,
+    SALE
 }

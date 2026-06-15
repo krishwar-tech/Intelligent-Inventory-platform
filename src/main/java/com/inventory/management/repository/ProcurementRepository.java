@@ -6,6 +6,7 @@ import com.inventory.management.entity.Procurement;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface ProcurementRepository extends JpaRepository<Procurement, Long> {
 
@@ -20,6 +21,9 @@ public interface ProcurementRepository extends JpaRepository<Procurement, Long> 
 	List<Procurement> findByTenant_IdAndProduct_Id(Long tenantId, Long id);
 
 	void deleteByProduct_Id(Long productId);
+
+	Optional<Procurement>
+	findTopByTenant_IdOrderByIdDesc(Long tenantId);
 
 	
 }

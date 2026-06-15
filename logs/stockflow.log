@@ -1,50 +1,1056 @@
-2026-05-20 10:44:45 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 12532 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
-2026-05-20 10:44:45 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-05-20 10:44:45 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
-2026-05-20 10:44:46 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-05-20 10:44:46 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-05-20 10:44:48 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-20 10:44:48 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 151 ms. Found 11 JPA repository interfaces.
-2026-05-20 10:44:49 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-05-20 10:44:49 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-05-20 10:44:49 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-05-20 10:44:49 [INFO] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 3587 ms
-2026-05-20 10:44:49 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
-2026-05-20 10:44:50 [INFO] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-05-20 10:44:50 [INFO] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-05-20 10:44:51 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-20 10:44:51 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-05-20 10:44:51 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56c12c57
-2026-05-20 10:44:51 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-05-20 10:44:52 [INFO] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:mysql://localhost:3306/stockflow_multitenant_dev]
-	Database driver: MySQL Connector/J
-	Database dialect: MySQLDialect
-	Database version: 8.0.43
-	Default catalog/schema: stockflow_multitenant_dev/undefined
-	Autocommit mode: undefined/unknown
-	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
-	JDBC fetch size: none
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-05-20 10:44:54 [INFO] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-20 10:44:54 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-20 10:44:54 [INFO] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-05-20 10:44:55 [WARN] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-05-20 10:44:55 [WARN] o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+2026-06-15 05:53:35 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 11544 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 05:53:35 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 05:53:35 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 05:53:35 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-15 05:53:35 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-15 05:53:36 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 05:53:37 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 323 ms. Found 13 JPA repository interfaces.
+2026-06-15 05:53:38 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 05:53:38 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 05:53:38 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 05:53:38 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 05:53:38 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3193 ms
+2026-06-15 05:53:38 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 05:53:38 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 05:53:38 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-06-15 05:53:38 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 05:53:39 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 05:53:40 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 05:53:42 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1088707e
+2026-06-15 05:53:42 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 05:53:43 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 05:53:45 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 05:54:03 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 05:54:04 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 05:54:04 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: ac39dd27-8dae-4a6b-9841-47d5595be003
+Using generated security password: b589add4-af39-4fd6-af03-36d0c4dade95
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-05-20 10:44:55 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-05-20 10:44:55 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-05-20 10:44:56 [INFO] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-05-20 10:44:56 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 11.37 seconds (process running for 13.399)
-2026-05-20 11:32:09 [WARN] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m47s141ms186µs).
-2026-05-20 11:52:04 [INFO] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-05-20 11:52:04 [INFO] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-05-20 11:52:04 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-05-20 11:52:05 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-05-20 11:52:05 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 05:54:04 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 05:54:04 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 05:54:05 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 05:54:05 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 05:54:05 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 31.369 seconds (process running for 34.922)
+2026-06-15 05:55:16 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-15 05:55:16 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-15 05:55:16 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-06-15 05:55:16 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/reports/dashboard
+2026-06-15 05:55:16 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/reports/dashboard
+2026-06-15 05:55:16 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 05:55:16 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 05:55:16 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 05:55:16 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 05:55:17 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 05:55:17 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 05:56:14 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/auth/login
+2026-06-15 05:56:14 [DEBUG] o.s.security.web.FilterChainProxy - Securing POST /api/auth/login
+2026-06-15 05:56:14 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 05:56:14 [DEBUG] o.s.security.web.FilterChainProxy - Secured POST /api/auth/login
+2026-06-15 05:56:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 05:56:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/reports/dashboard
+2026-06-15 05:56:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/reports/dashboard
+2026-06-15 05:56:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 05:56:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 05:56:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 05:56:19 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 05:56:19 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 05:56:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/reports/dashboard
+2026-06-15 05:56:19 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loading started
+2026-06-15 05:56:23 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 05:56:23 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 05:56:23 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 05:56:23 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 05:56:23 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 05:56:23 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched products : 17
+2026-06-15 05:56:23 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched sale items : 0
+2026-06-15 05:56:23 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated total revenue : 0.0
+2026-06-15 05:56:23 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated inventory value : 23270.0
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Mudakathan Thailam | Remaining : 5
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Anti Grey Hair Oil | Remaining : 8
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Peppermint Thailam | Remaining : 5
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Aloe Vera + Hibiscus Gel | Remaining : 10
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Shea & Cocoa Butter Moisturizer | Remaining : 6
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Herbal Shampoo | Remaining : 8
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Foot Crack Cream | Remaining : 5
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Soap | Remaining : 6
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Avarampoo Soap | Remaining : 9
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Neem with Kuppaimeni Soap | Remaining : 10
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Charcoal Soap | Remaining : 7
+2026-06-15 05:56:23 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Face Pack | Remaining : 9
+2026-06-15 05:56:23 [INFO] c.i.m.service.impl.ReportServiceImpl - Top selling products calculated
+2026-06-15 05:56:23 [INFO] c.i.m.service.impl.ReportServiceImpl - Category analytics prepared
+2026-06-15 05:56:24 [INFO] c.i.m.service.impl.ReportServiceImpl - Sales report generated | Transactions : 0
+2026-06-15 05:56:27 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 05:56:28 [INFO] c.i.m.service.impl.ReportServiceImpl - Purchase report generated | Records : 49
+2026-06-15 05:56:28 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loaded successfully
+2026-06-15 05:56:28 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 05:56:28 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/reports/dashboard
+2026-06-15 05:56:28 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loading started
+2026-06-15 05:56:32 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched products : 17
+2026-06-15 05:56:32 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched sale items : 0
+2026-06-15 05:56:32 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated total revenue : 0.0
+2026-06-15 05:56:32 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated inventory value : 23270.0
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Mudakathan Thailam | Remaining : 5
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Anti Grey Hair Oil | Remaining : 8
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Peppermint Thailam | Remaining : 5
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Aloe Vera + Hibiscus Gel | Remaining : 10
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Shea & Cocoa Butter Moisturizer | Remaining : 6
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Herbal Shampoo | Remaining : 8
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Foot Crack Cream | Remaining : 5
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Soap | Remaining : 6
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Avarampoo Soap | Remaining : 9
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Neem with Kuppaimeni Soap | Remaining : 10
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Charcoal Soap | Remaining : 7
+2026-06-15 05:56:32 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Face Pack | Remaining : 9
+2026-06-15 05:56:32 [INFO] c.i.m.service.impl.ReportServiceImpl - Top selling products calculated
+2026-06-15 05:56:32 [INFO] c.i.m.service.impl.ReportServiceImpl - Category analytics prepared
+2026-06-15 05:56:32 [INFO] c.i.m.service.impl.ReportServiceImpl - Sales report generated | Transactions : 0
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 05:56:34 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 05:56:35 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 05:56:35 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 05:56:35 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 05:56:35 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 05:56:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 05:56:35 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 05:56:36 [INFO] c.i.m.service.impl.ReportServiceImpl - Purchase report generated | Records : 49
+2026-06-15 05:56:36 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loaded successfully
+2026-06-15 05:56:36 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 05:56:36 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 05:56:36 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 05:56:36 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 05:56:37 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 05:56:37 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 05:56:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 05:56:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 05:56:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 05:56:37 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 05:56:37 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 05:56:37 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 05:56:37 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 05:56:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 05:56:40 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 06:06:34 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 06:06:34 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-15 06:06:34 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 06:40:53 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 13796 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 06:40:53 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 06:40:53 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 06:40:53 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-15 06:40:53 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-15 06:40:55 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 06:40:55 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 204 ms. Found 14 JPA repository interfaces.
+2026-06-15 06:40:56 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 06:40:56 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 06:40:56 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 06:40:57 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 06:40:57 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3306 ms
+2026-06-15 06:40:57 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 06:40:57 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 06:40:58 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-06-15 06:40:59 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 06:41:01 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 06:41:01 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 06:41:04 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@64992de6
+2026-06-15 06:41:04 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 06:41:04 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 06:41:06 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 06:41:22 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 06:41:24 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 06:41:24 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: b86a1e22-6dbe-4f10-b08e-9327cecec17b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-15 06:41:24 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 06:41:24 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 06:41:24 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 06:41:24 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 06:41:24 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 33.454 seconds (process running for 36.298)
+2026-06-15 06:45:59 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 06:45:59 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-15 06:45:59 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 06:49:28 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 1464 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 06:49:28 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 06:49:28 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 06:49:29 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-15 06:49:29 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-15 06:49:30 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 06:49:30 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 171 ms. Found 14 JPA repository interfaces.
+2026-06-15 06:49:32 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 06:49:32 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 06:49:32 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 06:49:32 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 06:49:32 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3390 ms
+2026-06-15 06:49:32 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 06:49:32 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 06:49:32 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-06-15 06:49:32 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 06:49:33 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 06:49:33 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 06:49:35 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7bc5b62c
+2026-06-15 06:49:35 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 06:49:36 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 06:49:39 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 06:49:56 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 06:49:57 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 06:49:57 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9ccdcabe-7e26-4e31-a750-9afe1d9ad9c1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-15 06:49:57 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 06:49:57 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 06:49:58 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 06:49:58 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 06:49:58 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 30.083 seconds (process running for 31.375)
+2026-06-15 06:52:14 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-15 06:52:14 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-15 06:52:14 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-06-15 06:52:14 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 06:52:14 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 06:52:14 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 06:52:14 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 06:52:14 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 06:52:14 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 06:53:01 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 06:53:01 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-15 06:53:02 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 06:53:14 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 8688 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 06:53:14 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 06:53:14 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 06:53:14 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-15 06:53:14 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-15 06:53:16 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 06:53:16 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 245 ms. Found 14 JPA repository interfaces.
+2026-06-15 06:53:17 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 06:53:17 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 06:53:17 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 06:53:17 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 06:53:17 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3404 ms
+2026-06-15 06:53:17 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 06:53:18 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 06:53:18 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-06-15 06:53:18 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 06:53:19 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 06:53:19 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 06:53:22 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4a0f074f
+2026-06-15 06:53:22 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 06:53:22 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 06:53:25 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 06:53:42 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 06:53:43 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 06:53:43 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: dd62c852-ce58-431c-b9ec-49dbf047f584
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-15 06:53:43 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 06:53:43 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 06:53:43 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 06:53:43 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 06:53:43 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 30.302 seconds (process running for 32.185)
+2026-06-15 06:53:51 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-15 06:53:51 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-15 06:53:51 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-06-15 06:53:51 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 06:53:51 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 06:53:51 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 06:53:51 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 06:53:51 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 06:53:51 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 06:54:09 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 06:54:09 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-15 06:54:09 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 07:12:49 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 13872 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 07:12:49 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 07:12:49 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 07:12:49 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-15 07:12:49 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-15 07:12:51 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 07:12:51 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 236 ms. Found 14 JPA repository interfaces.
+2026-06-15 07:12:54 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 07:12:54 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 07:12:54 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 07:12:54 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 07:12:54 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5341 ms
+2026-06-15 07:12:55 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 07:12:55 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 07:12:56 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-06-15 07:12:56 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 07:12:57 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 07:12:57 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 07:13:02 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2fc94b43
+2026-06-15 07:13:02 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 07:13:02 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 07:13:07 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 07:13:24 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:13:25 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 07:13:25 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 20adf679-848c-42b0-9c45-1a6a019318ea
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-15 07:13:25 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 07:13:26 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 07:13:26 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 07:13:27 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 07:13:27 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 38.739 seconds (process running for 40.647)
+2026-06-15 07:15:35 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-15 07:15:35 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-15 07:15:35 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:15:35 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:15:35 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:15:35 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:15:35 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:15:35 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:15:37 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:15:37 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:15:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:15:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:15:37 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:15:37 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:15:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:15:37 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:15:37 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:15:37 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:15:38 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:15:38 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:15:38 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:15:38 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:15:38 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:15:39 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:15:39 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:15:39 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:15:39 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:15:39 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:15:39 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:15:39 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:15:39 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:15:39 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:15:40 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:15:40 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:15:40 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:15:40 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:15:42 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:15:43 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:25:06 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:25:06 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-15 07:25:06 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 07:27:50 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 10584 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 07:27:50 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 07:27:50 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 07:27:50 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-15 07:27:50 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-15 07:27:52 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 07:27:52 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 194 ms. Found 14 JPA repository interfaces.
+2026-06-15 07:28:04 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 07:28:04 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 07:28:04 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 07:28:04 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 07:28:04 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13863 ms
+2026-06-15 07:28:04 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 07:28:04 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 07:28:04 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-06-15 07:28:04 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 07:28:05 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 07:28:05 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 07:28:08 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6d139587
+2026-06-15 07:28:08 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 07:28:09 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 07:28:11 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 07:28:36 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:28:37 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 07:28:37 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 7356bf58-7e58-4896-82e4-0d02541cdbe6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-15 07:28:37 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 07:28:38 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 07:28:38 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 07:28:38 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 07:28:38 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 49.401 seconds (process running for 52.601)
+2026-06-15 07:29:20 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-15 07:29:20 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-15 07:29:20 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-06-15 07:29:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:29:20 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:29:20 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:29:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 07:29:20 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:29:20 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:29:27 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:29:27 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:29:27 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:29:27 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 07:29:27 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:29:27 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:31:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:31:12 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:31:12 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:31:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 07:31:12 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:31:12 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:31:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:31:19 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:31:19 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:31:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 07:31:19 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:31:19 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:31:58 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:31:58 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-15 07:31:58 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 07:32:11 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 9356 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 07:32:11 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 07:32:11 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 07:32:11 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-06-15 07:32:11 [INFO] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-06-15 07:32:13 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 07:32:13 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 177 ms. Found 14 JPA repository interfaces.
+2026-06-15 07:32:14 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 07:32:14 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 07:32:14 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 07:32:14 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 07:32:14 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2459 ms
+2026-06-15 07:32:14 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 07:32:14 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 07:32:14 [INFO] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-06-15 07:32:14 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 07:32:15 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 07:32:15 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-15 07:32:17 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7496cab5
+2026-06-15 07:32:17 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-15 07:32:17 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 07:32:19 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 07:32:37 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:32:38 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 07:32:38 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 71fb3ea0-8183-4134-8f3e-879091383478
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-15 07:32:38 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 07:32:38 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 07:32:38 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 07:32:38 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 07:32:38 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 27.604 seconds (process running for 28.808)
+2026-06-15 07:32:56 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-15 07:32:56 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-15 07:32:56 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-06-15 07:32:56 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:32:56 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:32:56 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:32:57 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2026-06-15 07:32:57 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:32:57 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:32:57 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 07:32:57 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:32:57 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:36:46 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:36:46 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:36:46 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:36:46 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:36:46 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:36:46 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:36:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:36:46 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:36:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:36:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:36:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:36:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:36:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:36:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:36:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:36:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:36:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:36:49 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:36:49 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:36:49 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:36:49 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:36:49 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:36:51 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:36:51 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:36:51 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:36:51 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:36:51 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:36:51 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:36:54 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:36:54 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:36:54 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:36:54 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:36:55 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+2026-06-15 07:36:55 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:36:55 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:36:55 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /error
+2026-06-15 07:36:55 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:36:55 [DEBUG] o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:46:20 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:46:20 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:46:20 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:46:20 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:46:20 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:46:21 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:46:21 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:46:21 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:46:21 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:46:21 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:46:21 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:46:21 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:46:21 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:46:21 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:46:22 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:46:22 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:46:22 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:46:22 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:46:22 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:46:22 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:46:22 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:46:23 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:46:23 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:46:23 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:46:23 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:46:24 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:46:24 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:46:24 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:46:24 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:46:25 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:46:25 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:46:25 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:46:25 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:46:25 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:46:27 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:46:29 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:46:43 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:46:43 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:46:43 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:46:44 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:46:44 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:46:44 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:46:44 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:46:44 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:46:44 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:46:44 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:46:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:46:45 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:46:45 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:46:45 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:46:45 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:46:46 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:46:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:46:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:46:46 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:46:47 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:46:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:46:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:46:47 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:46:47 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:46:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:46:51 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:48:06 [INFO] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2026-06-15 07:48:06 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:48:06 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-06-15 07:48:06 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-06-15 07:48:07 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 9356 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 07:48:07 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 07:48:07 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 07:48:07 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 07:48:07 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 95 ms. Found 14 JPA repository interfaces.
+2026-06-15 07:48:08 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 07:48:08 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 07:48:08 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 07:48:08 [INFO] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 07:48:08 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1082 ms
+2026-06-15 07:48:08 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 07:48:08 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 07:48:08 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 07:48:08 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 07:48:08 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-06-15 07:48:10 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@641d4194
+2026-06-15 07:48:10 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-06-15 07:48:10 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 07:48:11 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 07:48:28 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:48:28 [WARN] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [D:\INV\INV-BACKEND\management\target\classes\com\inventory\management\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authServiceImpl' defined in file [D:\INV\INV-BACKEND\management\target\classes\com\inventory\management\service\impl\AuthServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'org.springframework.security.crypto.password.PasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-06-15 07:48:28 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:48:28 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-06-15 07:48:28 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-06-15 07:48:28 [INFO] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-06-15 07:48:28 [INFO] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-06-15 07:48:29 [ERROR] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in com.inventory.management.service.impl.AuthServiceImpl required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
+
+2026-06-15 07:48:30 [INFO] c.i.management.ManagementApplication - Starting ManagementApplication using Java 17.0.12 with PID 9356 (D:\INV\INV-BACKEND\management\target\classes started by WELCOME in D:\INV\INV-BACKEND\management)
+2026-06-15 07:48:30 [DEBUG] c.i.management.ManagementApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-06-15 07:48:30 [INFO] c.i.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+2026-06-15 07:48:31 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-15 07:48:31 [INFO] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 77 ms. Found 14 JPA repository interfaces.
+2026-06-15 07:48:31 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-15 07:48:31 [INFO] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-15 07:48:31 [INFO] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-06-15 07:48:31 [INFO] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-15 07:48:31 [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 564 ms
+2026-06-15 07:48:31 [DEBUG] c.i.management.config.JwtFilter - Filter 'jwtFilter' configured for use
+2026-06-15 07:48:31 [INFO] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-15 07:48:31 [INFO] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-15 07:48:31 [INFO] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-15 07:48:31 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-06-15 07:48:33 [INFO] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@1802a9db
+2026-06-15 07:48:33 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-06-15 07:48:33 [WARN] org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-15 07:48:34 [INFO] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-15 07:48:51 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 07:48:52 [WARN] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-15 07:48:52 [WARN] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d12cd8d0-b47e-40da-bfd8-93c4313783a0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-06-15 07:48:52 [INFO] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-06-15 07:48:52 [DEBUG] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-15 07:48:52 [INFO] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-06-15 07:48:52 [INFO] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-06-15 07:48:52 [INFO] c.i.management.ManagementApplication - Started ManagementApplication in 22.105 seconds (process running for 1002.962)
+2026-06-15 07:48:52 [INFO] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-06-15 07:53:12 [INFO] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-15 07:53:12 [INFO] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-15 07:53:12 [INFO] o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:53:12 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:53:12 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:53:12 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:53:12 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:53:12 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:53:13 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:53:13 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:53:13 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:53:14 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:53:14 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:53:14 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:53:14 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:53:14 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:53:14 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:53:14 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:53:14 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:53:14 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:53:15 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:53:15 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:53:15 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:53:15 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:53:15 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:53:16 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:53:16 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:53:16 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:53:16 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:53:16 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:53:16 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:53:16 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:53:17 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:53:17 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:53:17 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:53:17 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:53:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:53:20 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:53:42 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/auth/login
+2026-06-15 07:53:42 [DEBUG] o.s.security.web.FilterChainProxy - Securing POST /api/auth/login
+2026-06-15 07:53:42 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:53:42 [DEBUG] o.s.security.web.FilterChainProxy - Secured POST /api/auth/login
+2026-06-15 07:53:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:53:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:53:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:53:44 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:53:44 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:53:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/reports/dashboard
+2026-06-15 07:53:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/reports/dashboard
+2026-06-15 07:53:44 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 07:53:44 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/reports/dashboard
+2026-06-15 07:53:44 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loading started
+2026-06-15 07:53:46 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 8
+2026-06-15 07:53:46 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:53:46 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:53:46 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:53:46 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched products : 8
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched sale items : 3
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated total revenue : 1050.0
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated inventory value : 15505.0
+2026-06-15 07:53:47 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Sandal Soap | Remaining : 10
+2026-06-15 07:53:47 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Neem Soap | Remaining : 10
+2026-06-15 07:53:47 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Lip Balm | Remaining : 4
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.ReportServiceImpl - Top selling products calculated
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.ReportServiceImpl - Category analytics prepared
+2026-06-15 07:53:47 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 8
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:53:47 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:53:47 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.ReportServiceImpl - Sales report generated | Transactions : 5
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.ReportServiceImpl - Purchase report generated | Records : 0
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loaded successfully
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 1
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/reports/dashboard
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loading started
+2026-06-15 07:53:48 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:53:48 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 1
+2026-06-15 07:53:49 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:53:49 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:53:49 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:53:49 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:53:50 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched products : 8
+2026-06-15 07:53:50 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched sale items : 3
+2026-06-15 07:53:50 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated total revenue : 1050.0
+2026-06-15 07:53:50 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated inventory value : 15505.0
+2026-06-15 07:53:50 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Sandal Soap | Remaining : 10
+2026-06-15 07:53:50 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Neem Soap | Remaining : 10
+2026-06-15 07:53:50 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Lip Balm | Remaining : 4
+2026-06-15 07:53:50 [INFO] c.i.m.service.impl.ReportServiceImpl - Top selling products calculated
+2026-06-15 07:53:51 [INFO] c.i.m.service.impl.ReportServiceImpl - Category analytics prepared
+2026-06-15 07:53:51 [INFO] c.i.m.service.impl.ReportServiceImpl - Sales report generated | Transactions : 5
+2026-06-15 07:53:51 [INFO] c.i.m.service.impl.ReportServiceImpl - Purchase report generated | Records : 0
+2026-06-15 07:53:51 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loaded successfully
+2026-06-15 07:53:52 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:54:17 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:54:17 [DEBUG] o.s.security.web.FilterChainProxy - Securing POST /api/masters/gst
+2026-06-15 07:54:17 [DEBUG] o.s.security.web.FilterChainProxy - Secured POST /api/masters/gst
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:54:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:54:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:54:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:54:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:54:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:54:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 1
+2026-06-15 07:54:21 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:54:54 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/auth/login
+2026-06-15 07:54:54 [DEBUG] o.s.security.web.FilterChainProxy - Securing POST /api/auth/login
+2026-06-15 07:54:54 [DEBUG] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-06-15 07:54:54 [DEBUG] o.s.security.web.FilterChainProxy - Secured POST /api/auth/login
+2026-06-15 07:54:55 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:54:55 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/products
+2026-06-15 07:54:55 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/reports/dashboard
+2026-06-15 07:54:55 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:54:55 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 07:54:55 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:54:55 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:54:55 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:54:55 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/reports/dashboard
+2026-06-15 07:54:55 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loading started
+2026-06-15 07:54:59 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:54:59 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/products
+2026-06-15 07:54:59 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/products
+2026-06-15 07:54:59 [INFO] c.i.m.controller.ProductController - API Fetch All Products
+2026-06-15 07:54:59 [INFO] c.i.m.s.impl.ProductServiceImpl - Fetching all products
+2026-06-15 07:54:59 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched products : 17
+2026-06-15 07:54:59 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched sale items : 0
+2026-06-15 07:54:59 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated total revenue : 0.0
+2026-06-15 07:54:59 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated inventory value : 23270.0
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Mudakathan Thailam | Remaining : 5
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Anti Grey Hair Oil | Remaining : 8
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Peppermint Thailam | Remaining : 5
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Aloe Vera + Hibiscus Gel | Remaining : 10
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Shea & Cocoa Butter Moisturizer | Remaining : 6
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Herbal Shampoo | Remaining : 8
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Foot Crack Cream | Remaining : 5
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Soap | Remaining : 6
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Avarampoo Soap | Remaining : 9
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Neem with Kuppaimeni Soap | Remaining : 10
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Charcoal Soap | Remaining : 7
+2026-06-15 07:54:59 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Face Pack | Remaining : 9
+2026-06-15 07:54:59 [INFO] c.i.m.service.impl.ReportServiceImpl - Top selling products calculated
+2026-06-15 07:54:59 [INFO] c.i.m.service.impl.ReportServiceImpl - Category analytics prepared
+2026-06-15 07:54:59 [INFO] c.i.m.service.impl.ReportServiceImpl - Sales report generated | Transactions : 0
+2026-06-15 07:55:03 [INFO] c.i.m.s.impl.ProductServiceImpl - Total products fetched : 17
+2026-06-15 07:55:03 [INFO] c.i.m.service.impl.ReportServiceImpl - Purchase report generated | Records : 49
+2026-06-15 07:55:03 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loaded successfully
+2026-06-15 07:55:04 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/reports/dashboard
+2026-06-15 07:55:04 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/reports/dashboard
+2026-06-15 07:55:04 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loading started
+2026-06-15 07:55:08 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched products : 17
+2026-06-15 07:55:08 [INFO] c.i.m.service.impl.ReportServiceImpl - Fetched sale items : 0
+2026-06-15 07:55:08 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated total revenue : 0.0
+2026-06-15 07:55:08 [INFO] c.i.m.service.impl.ReportServiceImpl - Calculated inventory value : 23270.0
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Mudakathan Thailam | Remaining : 5
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Anti Grey Hair Oil | Remaining : 8
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Peppermint Thailam | Remaining : 5
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Aloe Vera + Hibiscus Gel | Remaining : 10
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Shea & Cocoa Butter Moisturizer | Remaining : 6
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Herbal Shampoo | Remaining : 8
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Foot Crack Cream | Remaining : 5
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Soap | Remaining : 6
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Avarampoo Soap | Remaining : 9
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Neem with Kuppaimeni Soap | Remaining : 10
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Charcoal Soap | Remaining : 7
+2026-06-15 07:55:08 [WARN] c.i.m.service.impl.ReportServiceImpl - Low stock detected : Nalangumaavu Face Pack | Remaining : 9
+2026-06-15 07:55:08 [INFO] c.i.m.service.impl.ReportServiceImpl - Top selling products calculated
+2026-06-15 07:55:08 [INFO] c.i.m.service.impl.ReportServiceImpl - Category analytics prepared
+2026-06-15 07:55:08 [INFO] c.i.m.service.impl.ReportServiceImpl - Sales report generated | Transactions : 0
+2026-06-15 07:55:12 [INFO] c.i.m.service.impl.ReportServiceImpl - Purchase report generated | Records : 49
+2026-06-15 07:55:12 [INFO] c.i.m.service.impl.ReportServiceImpl - Dashboard analytics loaded successfully
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/suppliers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/subcategories
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/categories
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/shelf-lives
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/customers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing OPTIONS /api/masters/gst
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:55:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:55:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:55:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/gst
+2026-06-15 07:55:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/gst
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/suppliers
+2026-06-15 07:55:19 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/suppliers
+2026-06-15 07:55:19 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching suppliers
+2026-06-15 07:55:20 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:55:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/shelf-lives
+2026-06-15 07:55:20 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/customers
+2026-06-15 07:55:20 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/customers
+2026-06-15 07:55:20 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/shelf-lives
+2026-06-15 07:55:20 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching customers
+2026-06-15 07:55:20 [INFO] c.i.m.service.impl.MasterServiceImpl - Total suppliers fetched : 0
+2026-06-15 07:55:20 [INFO] c.i.m.service.impl.MasterServiceImpl - Total customers fetched : 6
+2026-06-15 07:55:21 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/subcategories
+2026-06-15 07:55:21 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/subcategories
+2026-06-15 07:55:22 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 07:55:22 [DEBUG] o.s.security.web.FilterChainProxy - Securing GET /api/masters/categories
+2026-06-15 07:55:22 [DEBUG] o.s.security.web.FilterChainProxy - Secured GET /api/masters/categories
+2026-06-15 07:55:22 [INFO] c.i.m.service.impl.MasterServiceImpl - Fetching active categories
+2026-06-15 07:55:24 [INFO] c.i.m.service.impl.MasterServiceImpl - Total active categories fetched : 5
+2026-06-15 09:00:08 [WARN] com.zaxxer.hikari.pool.PoolBase - HikariPool-3 - Failed to validate connection org.postgresql.jdbc.PgConnection@3a2cf381 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-06-15 09:00:18 [WARN] com.zaxxer.hikari.pool.PoolBase - HikariPool-3 - Failed to validate connection org.postgresql.jdbc.PgConnection@5a676ed7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-06-15 09:00:18 [WARN] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=11m13s467ms167µs300ns).
+2026-06-15 09:15:29 [INFO] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-15 09:15:29 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2026-06-15 09:15:29 [INFO] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.

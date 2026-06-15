@@ -1,9 +1,14 @@
 package com.inventory.management.entity;
 
-import jakarta.persistence.*;
-import lombok.Data;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.*;
+
+import lombok.Data;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import com.inventory.management.enums.InventoryActionType;
 
 @Entity
 @Data
@@ -14,9 +19,13 @@ public class InventoryTransaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String type;
+	@Enumerated(EnumType.STRING)
+	private InventoryActionType type;
+
 	private Integer qty;
+
 	private Integer balanceStock;
+
 	private String remarks;
 
 	private LocalDateTime createdAt;
@@ -25,7 +34,7 @@ public class InventoryTransaction {
 	@JoinColumn(name = "product_id")
 	@JsonIgnoreProperties({ "category" })
 	private Product product;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "tenant_id")
 	private Tenant tenant;

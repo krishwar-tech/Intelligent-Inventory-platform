@@ -1,234 +1,469 @@
 package com.inventory.management.controller;
 
+import com.inventory.management.config.TenantContext;
+import com.inventory.management.dto.ApiResponse;
 import com.inventory.management.entity.Category;
 import com.inventory.management.entity.Product;
-
+import com.inventory.management.enums.ProductStatus;
 import com.inventory.management.repository.CategoryRepository;
 import com.inventory.management.repository.ProductRepository;
-import com.inventory.management.config.TenantContext;
-
 import com.inventory.management.service.ProductService;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.inventory.management.entity.SubCategory;
+import com.inventory.management.repository.SubCategoryRepository;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin("*")
 public class ProductController {
 
-	private final ProductRepository productRepo;
+    private final ProductRepository productRepo;
 
-	private final ProductService service;
+    private final ProductService service;
 
-	private final CategoryRepository categoryRepo;
+    private final CategoryRepository categoryRepo;
 
-	private static final Logger log = LoggerFactory.getLogger(ProductController.class);
+    private final SubCategoryRepository subCategoryRepo;
 
-	public ProductController(ProductService service, CategoryRepository categoryRepo, ProductRepository productRepo) {
+    private static final Logger log =
+            LoggerFactory.getLogger(ProductController.class);
 
-		this.service = service;
+    public ProductController(
+            ProductService service,
+            CategoryRepository categoryRepo,
+            ProductRepository productRepo,
+            SubCategoryRepository subCategoryRepo) {
 
-		this.categoryRepo = categoryRepo;
+        this.service = service;
+        this.categoryRepo = categoryRepo;
+        this.productRepo = productRepo;
+        this.subCategoryRepo = subCategoryRepo;
+    }
 
-		this.productRepo = productRepo;
-	}
+    @PostMapping
+    public ResponseEntity<ApiResponse<Product>> create(
+            @RequestBody Map<String, Object> body) {
 
-	@PostMapping
-	public Product create(@RequestBody Map<String, Object> body) {
+        log.info("API Create Product called");
 
-		log.info("API Create Product called");
+        Product p = new Product();
 
-		Product p = new Product();
+        p.setName(
+                body.get("name") != null
+                        ? body.get("name").toString()
+                        : "");
 
-		p.setName(body.get("name") != null ? body.get("name").toString() : "");
+        String barcode =
+                body.get("barcode") != null
+                        ? body.get("barcode").toString().trim()
+                        : "";
 
-		p.setBarcode(body.get("barcode") != null ? body.get("barcode").toString() : null);
+        p.setBarcode(
+                barcode.isEmpty()
+                        ? "N/A"
+                        : barcode);
 
-		p.setPrice(body.get("price") != null ? new BigDecimal(body.get("price").toString()) : BigDecimal.ZERO);
+        p.setPrice(
+                body.get("price") != null
+                        ? new BigDecimal(body.get("price").toString())
+                        : BigDecimal.ZERO);
 
-		p.setMrp(body.get("mrp") != null ? new BigDecimal(body.get("mrp").toString()) : BigDecimal.ZERO);
+        p.setMrp(
+                body.get("mrp") != null
+                        ? new BigDecimal(body.get("mrp").toString())
+                        : BigDecimal.ZERO);
 
-		p.setUnit(body.get("unit") != null ? body.get("unit").toString() : "pcs");
+        p.setUnit(
+                body.get("unit") != null
+                        ? body.get("unit").toString()
+                        : "pcs");
+        p.setStatus(ProductStatus.PENDING);
 
-		p.setStatus("ACTIVE");
+        if (body.get("categoryId") != null) {
 
-		if (body.get("categoryId") != null) {
+            Long catId =
+                    Long.valueOf(
+                            body.get("categoryId").toString());
 
-			Long catId = Long.valueOf(body.get("categoryId").toString());
+            Category c =
+                    categoryRepo.findById(catId).orElseThrow();
 
-			Category c = categoryRepo.findById(catId).orElseThrow();
+            p.setCategory(c);
+        }
 
-			p.setCategory(c);
-		}
+        if (body.get("subCategoryId") != null) {
 
-		Product saved = service.save(p);
+            Long subId =
+                    Long.valueOf(
+                            body.get("subCategoryId").toString());
 
-		log.info("API Product created : {}", saved.getName());
+            SubCategory sc =
+                    subCategoryRepo.findById(subId)
+                            .orElseThrow();
 
-		return saved;
-	}
+            p.setSubCategory(sc);
 
-	@GetMapping
-	public List<Product> getAll() {
+            // AUTO ASSIGN PARENT CATEGORY
 
-		log.info("API Fetch All Products");
+            p.setCategory(sc.getCategory());
+        }
 
-		return service.getAll();
-	}
+        if (
+                body.get("categoryId") == null &&
+                        body.get("subCategoryId") == null
+        ) {
+            throw new RuntimeException(
+                    "Either Category or Sub Category is required");
+        }
 
-	@GetMapping("/{id}")
-	public Product getById(@PathVariable Long id) {
+        Product saved = service.save(p);
 
-		log.info("API Fetch Product by ID : {}", id);
+        log.info("API Product created : {}", saved.getName());
 
-		return service.getById(id);
-	}
+        ApiResponse<Product> response =
+                new ApiResponse<>(
+                        true,
+                        "Product created successfully",
+                        HttpStatus.CREATED.value(),
+                        saved,
+                        LocalDateTime.now());
 
-	@GetMapping("/search")
-	public List<Product> search(@RequestParam String q) {
+        return new ResponseEntity<>(
+                response,
+                HttpStatus.CREATED);
+    }
 
-		log.info("API Product Search : {}", q);
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<Product>>> getAll() {
 
-		return service.search(q);
-	}
+        log.info("API Fetch All Products");
 
-	@GetMapping("/category/{id}")
-	public List<Product> byCategory(@PathVariable Long id) {
+        List<Product> products = service.getAll();
 
-		log.info("API Products By Category : {}", id);
+        ApiResponse<List<Product>> response =
+                new ApiResponse<>(
+                        true,
+                        "Products fetched successfully",
+                        HttpStatus.OK.value(),
+                        products,
+                        LocalDateTime.now());
 
-		return service.getByCategory(id);
-	}
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<Product>> getById(
+            @PathVariable Long id) {
+
+        log.info("API Fetch Product by ID : {}", id);
+
+        Product product = service.getById(id);
+
+        ApiResponse<Product> response =
+                new ApiResponse<>(
+                        true,
+                        "Product fetched successfully",
+                        HttpStatus.OK.value(),
+                        product,
+                        LocalDateTime.now());
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<ApiResponse<List<Product>>> search(
+            @RequestParam String q) {
+
+        log.info("API Product Search : {}", q);
+
+        List<Product> products = service.search(q);
+
+        ApiResponse<List<Product>> response =
+                new ApiResponse<>(
+                        true,
+                        "Search completed successfully",
+                        HttpStatus.OK.value(),
+                        products,
+                        LocalDateTime.now());
 
-	@PutMapping("/{id}")
-	public Product update(@PathVariable Long id, @RequestBody Map<String, Object> body) {
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/category/{id}")
+    public ResponseEntity<ApiResponse<List<Product>>> byCategory(
+            @PathVariable Long id) {
+
+        log.info("API Products By Category : {}", id);
+
+        List<Product> products =
+                service.getByCategory(id);
+
+        ApiResponse<List<Product>> response =
+                new ApiResponse<>(
+                        true,
+                        "Category products fetched successfully",
+                        HttpStatus.OK.value(),
+                        products,
+                        LocalDateTime.now());
 
-		log.info("API Update Product : {}", id);
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse<Product>> update(
+            @PathVariable Long id,
+            @RequestBody Map<String, Object> body) {
+
+        log.info("API Update Product : {}", id);
+
+        Product p = new Product();
+
+        if (body.get("name") != null)
+            p.setName(body.get("name").toString());
+
+        if (body.get("barcode") != null)
+            p.setBarcode(body.get("barcode").toString());
 
-		Product p = new Product();
+        if (body.get("price") != null)
+            p.setPrice(
+                    BigDecimal.valueOf(
+                            Double.parseDouble(
+                                    body.get("price").toString())));
+
+        if (body.get("mrp") != null)
+            p.setMrp(
+                    BigDecimal.valueOf(
+                            Double.parseDouble(
+                                    body.get("mrp").toString())));
+
+        if (body.get("unit") != null)
+            p.setUnit(body.get("unit").toString());
+
+        Long categoryId =
+                body.get("categoryId") == null
+                        ? null
+                        : Long.valueOf(
+                        body.get("categoryId").toString());
 
-		if (body.get("name") != null)
-			p.setName(body.get("name").toString());
+        Long subCategoryId =
+                body.get("subCategoryId") == null
+                        ? null
+                        : Long.valueOf(
+                        body.get("subCategoryId").toString());
 
-		if (body.get("barcode") != null)
-			p.setBarcode(body.get("barcode").toString());
+        Product updated =
+                service.update(
+                        id,
+                        p,
+                        categoryId,
+                        subCategoryId);
+
+        ApiResponse<Product> response =
+                new ApiResponse<>(
+                        true,
+                        "Product updated successfully",
+                        HttpStatus.OK.value(),
+                        updated,
+                        LocalDateTime.now());
 
-		if (body.get("price") != null)
-			p.setPrice(BigDecimal.valueOf(Double.parseDouble(body.get("price").toString())));
+        return ResponseEntity.ok(response);
+    }
 
-		if (body.get("mrp") != null)
-			p.setMrp(BigDecimal.valueOf(Double.parseDouble(body.get("mrp").toString())));
+    @PutMapping("/price/{id}")
+    public ResponseEntity<ApiResponse<Product>> updatePrice(
+            @PathVariable Long id,
+            @RequestBody Map<String, Object> body) {
 
-		if (body.get("unit") != null)
-			p.setUnit(body.get("unit").toString());
+        log.info("API Update Price : {}", id);
+
+        Double price =
+                Double.valueOf(body.get("price").toString());
+
+        Double mrp =
+                Double.valueOf(body.get("mrp").toString());
 
-		Long categoryId = body.get("categoryId") == null ? null : Long.valueOf(body.get("categoryId").toString());
+        Product updated =
+                service.updatePrice(id, price, mrp);
 
-		return service.update(id, p, categoryId);
-	}
+        ApiResponse<Product> response =
+                new ApiResponse<>(
+                        true,
+                        "Product price updated successfully",
+                        HttpStatus.OK.value(),
+                        updated,
+                        LocalDateTime.now());
 
-	@PutMapping("/price/{id}")
-	public Product updatePrice(@PathVariable Long id, @RequestBody Map<String, Object> body) {
+        return ResponseEntity.ok(response);
+    }
 
-		log.info("API Update Price : {}", id);
+    @PutMapping("/activate/{id}")
+    public ResponseEntity<ApiResponse<Product>> activate(
+            @PathVariable Long id) {
 
-		Double price = Double.valueOf(body.get("price").toString());
+        log.info("API Activate Product : {}", id);
 
-		Double mrp = Double.valueOf(body.get("mrp").toString());
+        Product product = service.activate(id);
 
-		return service.updatePrice(id, price, mrp);
-	}
+        ApiResponse<Product> response =
+                new ApiResponse<>(
+                        true,
+                        "Product activated successfully",
+                        HttpStatus.OK.value(),
+                        product,
+                        LocalDateTime.now());
 
-	@PutMapping("/activate/{id}")
-	public Product activate(@PathVariable Long id) {
+        return ResponseEntity.ok(response);
+    }
 
-		log.info("API Activate Product : {}", id);
+    @PutMapping("/deactivate/{id}")
+    public ResponseEntity<ApiResponse<Product>> deactivate(
+            @PathVariable Long id) {
 
-		return service.activate(id);
-	}
+        log.warn("API Deactivate Product : {}", id);
 
-	@PutMapping("/deactivate/{id}")
-	public Product deactivate(@PathVariable Long id) {
+        Product product = service.deactivate(id);
 
-		log.warn("API Deactivate Product : {}", id);
+        ApiResponse<Product> response =
+                new ApiResponse<>(
+                        true,
+                        "Product deactivated successfully",
+                        HttpStatus.OK.value(),
+                        product,
+                        LocalDateTime.now());
 
-		return service.deactivate(id);
-	}
+        return ResponseEntity.ok(response);
+    }
 
-	@PutMapping("/approve/{id}")
-	public Product approve(@PathVariable Long id, @RequestBody Map<String, Object> body) {
+    @PutMapping("/approve/{id}")
+    public ResponseEntity<ApiResponse<Product>> approve(
+            @PathVariable Long id,
+            @RequestBody Map<String, Object> body) {
 
-		log.info("API Approve Product : {}", id);
+        log.info("API Approve Product : {}", id);
 
-		Double price = Double.valueOf(body.get("price").toString());
+        Double price =
+                Double.valueOf(body.get("price").toString());
 
-		Double mrp = Double.valueOf(body.get("mrp").toString());
+        Double mrp =
+                Double.valueOf(body.get("mrp").toString());
 
-		return service.approve(id, price, mrp);
-	}
+        Product product =
+                service.approve(id, price, mrp);
 
-	@DeleteMapping("/{id}")
-	public String delete(@PathVariable Long id) {
+        ApiResponse<Product> response =
+                new ApiResponse<>(
+                        true,
+                        "Product approved successfully",
+                        HttpStatus.OK.value(),
+                        product,
+                        LocalDateTime.now());
 
-		log.warn("API Delete Product : {}", id);
+        return ResponseEntity.ok(response);
+    }
 
-		service.delete(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse<String>> delete(
+            @PathVariable Long id) {
 
-		return "Product deleted successfully";
-	}
+        log.warn("API Delete Product : {}", id);
 
-	@GetMapping("/pending")
-	public List<Product> pending() {
+        service.delete(id);
 
-		log.info("API Fetch Pending Products");
+        ApiResponse<String> response =
+                new ApiResponse<>(
+                        true,
+                        "Product deleted successfully",
+                        HttpStatus.OK.value(),
+                        "Deleted",
+                        LocalDateTime.now());
 
-		return service.getPending();
-	}
+        return ResponseEntity.ok(response);
+    }
 
-	@GetMapping("/stats")
-	public Map<String, Object> stats() {
+    @GetMapping("/pending")
+    public ResponseEntity<ApiResponse<List<Product>>> pending() {
 
-		log.info("API Product Stats");
+        log.info("API Fetch Pending Products");
 
-		return service.stats();
-	}
+        List<Product> products = service.getPending();
 
-	@GetMapping("/scan/{barcode}")
-	public Map<String, Object> scan(@PathVariable String barcode) {
+        ApiResponse<List<Product>> response =
+                new ApiResponse<>(
+                        true,
+                        "Pending products fetched successfully",
+                        HttpStatus.OK.value(),
+                        products,
+                        LocalDateTime.now());
 
-		log.info("API Barcode Scan : {}", barcode);
+        return ResponseEntity.ok(response);
+    }
 
-		Map<String, Object> res = new HashMap<>();
+    @GetMapping("/stats")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> stats() {
 
-		Optional<Product> product =productRepo.findByTenant_IdAndBarcode(
-			    TenantContext.getTenantId(),
-			    barcode.trim()
-			);
+        log.info("API Product Stats");
 
-		if (product.isPresent()) {
+        Map<String, Object> stats =
+                service.stats();
 
-			log.info("Barcode matched : {}", product.get().getName());
+        ApiResponse<Map<String, Object>> response =
+                new ApiResponse<>(
+                        true,
+                        "Product stats fetched successfully",
+                        HttpStatus.OK.value(),
+                        stats,
+                        LocalDateTime.now());
 
-			res.put("exists", true);
+        return ResponseEntity.ok(response);
+    }
 
-			res.put("product", product.get());
+    @GetMapping("/scan/{barcode}")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> scan(
+            @PathVariable String barcode) {
 
-		} else {
+        log.info("API Barcode Scan : {}", barcode);
 
-			log.warn("Barcode not found : {}", barcode);
+        Map<String, Object> res = new HashMap<>();
 
-			res.put("exists", false);
-		}
+        Optional<Product> product =
+                productRepo.findByTenant_IdAndBarcode(
+                        TenantContext.getTenantId(),
+                        barcode.trim());
 
-		return res;
-	}
+        if (product.isPresent()) {
+
+            log.info(
+                    "Barcode matched : {}",
+                    product.get().getName());
+
+            res.put("exists", true);
+            res.put("product", product.get());
+
+        } else {
+
+            log.warn("Barcode not found : {}", barcode);
+
+            res.put("exists", false);
+        }
+
+        ApiResponse<Map<String, Object>> response =
+                new ApiResponse<>(
+                        true,
+                        "Barcode scan completed",
+                        HttpStatus.OK.value(),
+                        res,
+                        LocalDateTime.now());
+
+        return ResponseEntity.ok(response);
+    }
 }

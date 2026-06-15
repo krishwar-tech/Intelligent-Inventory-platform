@@ -1,70 +1,106 @@
 package com.inventory.management.config;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import io.jsonwebtoken.Claims;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.util.ArrayList;
-
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-
-import org.springframework.security.core.context.SecurityContextHolder;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
-	private final JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
-	public JwtFilter(JwtUtil jwtUtil) {
-		this.jwtUtil = jwtUtil;
-	}
+    public JwtFilter(JwtUtil jwtUtil) {
+        this.jwtUtil = jwtUtil;
+    }
 
-	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
+    @Override
+    protected boolean shouldNotFilter(
+            HttpServletRequest request) {
 
-		String authHeader = request.getHeader("Authorization");
+        String path = request.getServletPath();
 
-		if (authHeader != null && authHeader.startsWith("Bearer ")) {
+        return path.startsWith("/api/auth/");
+    }
 
-			String token = authHeader.substring(7);
+    @Override
+    protected void doFilterInternal(
 
-			try {
+            HttpServletRequest request,
 
-				Claims claims = jwtUtil.extractAllClaims(token);
+            HttpServletResponse response,
 
-				Integer tenantIdInt = claims.get("tenantId", Integer.class);
+            FilterChain filterChain)
 
-				Long tenantId = tenantIdInt.longValue();
+            throws ServletException, IOException {
 
-				String username = claims.getSubject();
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
 
-				TenantContext.setTenantId(tenantId);
+            filterChain.doFilter(request, response);
 
-				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(username,
-						null, new ArrayList<>());
+            return;
+        }
 
-				SecurityContextHolder.getContext().setAuthentication(authentication);
+        String authHeader =
+                request.getHeader("Authorization");
 
-			} catch (Exception e) {
+        if (authHeader != null &&
+                authHeader.startsWith("Bearer ")) {
 
-				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            String token =
+                    authHeader.substring(7);
 
-				response.getWriter().write("Invalid JWT Token");
+            try {
 
-				return;
-			}
-		}
+                Claims claims =
+                        jwtUtil.extractAllClaims(token);
 
-		filterChain.doFilter(request, response);
+                Integer tenantIdInt =
+                        claims.get("tenantId", Integer.class);
 
-		TenantContext.clear();
-	}
+                Long tenantId =
+                        tenantIdInt.longValue();
+
+                String username =
+                        claims.getSubject();
+
+                TenantContext.setTenantId(tenantId);
+
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(
+                                username,
+                                null,
+                                new ArrayList<>());
+
+                SecurityContextHolder
+                        .getContext()
+                        .setAuthentication(authentication);
+
+            } catch (Exception e) {
+
+                response.setStatus(
+                        HttpServletResponse.SC_UNAUTHORIZED);
+
+                response.getWriter()
+                        .write("Invalid JWT Token");
+
+                return;
+            }
+        }
+
+        filterChain.doFilter(request, response);
+
+        TenantContext.clear();
+    }
 }
