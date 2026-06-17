@@ -155,4 +155,93 @@ public class ProcurementController {
                 response,
                 HttpStatus.CREATED);
     }
+
+    @PostMapping("/grn")
+    public ResponseEntity<ApiResponse<Map<String,Object>>> saveGrn(
+            @RequestBody Map<String,Object> body) {
+
+        Long supplierId =
+                Long.valueOf(
+                        body.get("supplierId").toString());
+
+        String invoiceRef =
+                body.get("invoiceRef").toString();
+
+        List<Map<String,Object>> items =
+                (List<Map<String,Object>>) body.get("items");
+
+        Map<String,Object> result =
+                service.saveGrn(
+                        supplierId,
+                        invoiceRef,
+                        items);
+
+        ApiResponse<Map<String,Object>> response =
+                new ApiResponse<>(
+                        true,
+                        "GRN created successfully",
+                        HttpStatus.CREATED.value(),
+                        result,
+                        LocalDateTime.now());
+
+        return new ResponseEntity<>(
+                response,
+                HttpStatus.CREATED);
+    }
+
+    @GetMapping("/grn")
+    public ResponseEntity<ApiResponse<List<Map<String,Object>>>> getGrnSummary() {
+
+        List<Map<String,Object>> data =
+                service.getGrnSummary();
+
+        ApiResponse<List<Map<String,Object>>> response =
+                new ApiResponse<>(
+                        true,
+                        "GRN summary fetched successfully",
+                        HttpStatus.OK.value(),
+                        data,
+                        LocalDateTime.now());
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/grn/{grnNumber}")
+    public ResponseEntity<
+            ApiResponse<List<Procurement>>>
+    getGrnDetails(
+            @PathVariable String grnNumber) {
+
+        List<Procurement> data =
+                service.getGrnDetails(
+                        grnNumber);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "GRN details fetched",
+                        200,
+                        data,
+                        LocalDateTime.now()
+                )
+        );
+    }
+
+    @DeleteMapping("/grn/{grnNumber}")
+    public ResponseEntity<ApiResponse<String>>
+    deleteGrn(
+            @PathVariable String grnNumber) {
+
+        service.deleteGrn(grnNumber);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "GRN deleted successfully",
+                        200,
+                        "Deleted",
+                        LocalDateTime.now()
+                )
+        );
+    }
 }

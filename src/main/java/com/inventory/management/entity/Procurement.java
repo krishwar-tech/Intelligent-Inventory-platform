@@ -37,6 +37,8 @@ public class Procurement {
 
     private LocalDate expiryDate;
 
+    private String grnNumber;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;

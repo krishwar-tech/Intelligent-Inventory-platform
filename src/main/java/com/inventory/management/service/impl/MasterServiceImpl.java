@@ -485,16 +485,20 @@ public class MasterServiceImpl implements MasterService {
 
         s.setStatus("ACTIVE");
 
+        s.setSupplierCode(
+                generateSupplierCode(
+                        tenant.getId()));
+
         Supplier saved =
                 supplierRepo.save(s);
 
         log.info(
-                "Supplier added successfully : {}",
+                "Supplier created : {} | {}",
+                saved.getSupplierCode(),
                 saved.getName());
 
         return saved;
     }
-
     @Override
     public Supplier updateSupplier(
             Long id,
@@ -592,6 +596,10 @@ public class MasterServiceImpl implements MasterService {
         c.setTenant(tenant);
 
         c.setStatus("ACTIVE");
+
+        c.setCustomerCode(
+                generateCustomerCode(
+                        tenant.getId()));
 
         Customer saved =
                 customerRepo.save(c);
@@ -728,5 +736,79 @@ public class MasterServiceImpl implements MasterService {
                 .orElseThrow(() -> new RuntimeException("Shelf Life not found"));
         shelfLifeRepo.delete(shelfLife);
         return "Deleted successfully";
+    }
+
+    private String generateSupplierCode(
+            Long tenantId) {
+
+        Optional<Supplier> lastSupplier =
+                supplierRepo
+                        .findTopByTenant_IdOrderByIdDesc(
+                                tenantId);
+
+        if (lastSupplier.isEmpty()) {
+            return "SUP-000001";
+        }
+
+        String lastCode =
+                lastSupplier.get()
+                        .getSupplierCode();
+
+        if (lastCode == null ||
+                lastCode.isBlank()) {
+
+            return "SUP-000001";
+        }
+
+        int sequence =
+                Integer.parseInt(
+                        lastCode.replace(
+                                "SUP-",
+                                "")
+                );
+
+        sequence++;
+
+        return String.format(
+                "SUP-%06d",
+                sequence
+        );
+    }
+
+    private String generateCustomerCode(
+            Long tenantId) {
+
+        Optional<Customer> lastCustomer =
+                customerRepo
+                        .findTopByTenant_IdOrderByIdDesc(
+                                tenantId);
+
+        if (lastCustomer.isEmpty()) {
+            return "CUS-000001";
+        }
+
+        String lastCode =
+                lastCustomer.get()
+                        .getCustomerCode();
+
+        if (lastCode == null ||
+                lastCode.isBlank()) {
+
+            return "CUS-000001";
+        }
+
+        int sequence =
+                Integer.parseInt(
+                        lastCode.replace(
+                                "CUS-",
+                                "")
+                );
+
+        sequence++;
+
+        return String.format(
+                "CUS-%06d",
+                sequence
+        );
     }
 }

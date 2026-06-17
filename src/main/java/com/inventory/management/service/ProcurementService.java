@@ -16,6 +16,19 @@ public interface ProcurementService {
 			Double costPrice,
 			LocalDate manufactureDate);
 
+	Map<String,Object> saveGrn(
+			Long supplierId,
+			String invoiceRef,
+			List<Map<String,Object>> items);
+
+	List<Map<String,Object>> getGrnSummary();
+
+	List<Procurement> getGrnDetails(
+			String grnNumber);
+
+	void deleteGrn(
+			String grnNumber);
+
 	Map<String, Object> importExcel(
 			MultipartFile file);
 

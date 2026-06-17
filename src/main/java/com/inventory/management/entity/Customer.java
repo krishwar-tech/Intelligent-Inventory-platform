@@ -2,7 +2,6 @@ package com.inventory.management.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 @Entity
 @Data
 @Table(name = "customer")
@@ -11,6 +10,9 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(unique = true)
+	private String customerCode;
 
 	private String name;
 

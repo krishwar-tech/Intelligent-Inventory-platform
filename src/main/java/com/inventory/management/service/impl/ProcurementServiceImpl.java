@@ -876,4 +876,293 @@ public class ProcurementServiceImpl implements ProcurementService {
 
         return saved;
     }
+    @Override
+    @Transactional
+    public Map<String, Object> saveGrn(
+            Long supplierId,
+            String invoiceRef,
+            List<Map<String, Object>> items) {
+
+        Long tenantId =
+                TenantContext.getTenantId();
+
+        Tenant tenant =
+                tenantRepo.findById(tenantId)
+                        .orElseThrow();
+
+        Supplier supplier =
+                supplierRepo.findById(supplierId)
+                        .orElseThrow(() ->
+                                new SupplierNotFoundException(
+                                        "Supplier not found"));
+
+        String grnNumber =
+                generateGrnNumber();
+
+        BigDecimal grandTotal =
+                BigDecimal.ZERO;
+
+        for (Map<String,Object> item : items) {
+
+            Long productId =
+                    Long.valueOf(
+                            item.get("productId").toString());
+
+            Integer qty =
+                    Integer.valueOf(
+                            item.get("qty").toString());
+
+            Double costPrice =
+                    Double.valueOf(
+                            item.get("costPrice").toString());
+
+            LocalDate manufactureDate =
+                    LocalDate.parse(
+                            item.get("manufactureDate").toString());
+
+            Product product =
+                    productRepo.findById(productId)
+                            .orElseThrow(() ->
+                                    new ProductNotFoundException(
+                                            "Product not found"));
+
+            Procurement p =
+                    new Procurement();
+
+            BigDecimal cost =
+                    BigDecimal.valueOf(costPrice);
+
+            BigDecimal total =
+                    cost.multiply(
+                            BigDecimal.valueOf(qty));
+
+            p.setProduct(product);
+            p.setSupplier(supplier);
+
+            p.setQty(qty);
+
+            p.setCostPrice(cost);
+
+            p.setTotalCost(total);
+
+            p.setPaidAmount(BigDecimal.ZERO);
+
+            p.setDueAmount(total);
+
+            p.setPaymentStatus("UNPAID");
+
+            p.setManufactureDate(manufactureDate);
+
+            ShelfLife shelfLife = null;
+
+            if (product.getSubCategory() != null) {
+
+                shelfLife =
+                        shelfLifeRepo
+                                .findBySubCategory_Id(
+                                        product.getSubCategory().getId())
+                                .orElse(null);
+            }
+
+            if (
+                    shelfLife == null &&
+                            product.getCategory() != null
+            ) {
+
+                shelfLife =
+                        shelfLifeRepo
+                                .findByCategory_Id(
+                                        product.getCategory().getId())
+                                .orElse(null);
+            }
+
+            if (shelfLife != null) {
+
+                p.setShelfLife(shelfLife);
+
+                p.setExpiryDate(
+                        manufactureDate.plusMonths(
+                                shelfLife.getMonths()
+                        )
+                );
+            }
+
+            p.setDate(LocalDate.now());
+
+            p.setInvoiceRef(invoiceRef);
+
+            p.setGrnNumber(grnNumber);
+
+            p.setTenant(tenant);
+
+            repo.save(p);
+
+            inventoryService.increaseStock(
+                    product,
+                    qty,
+                    InventoryActionType.PURCHASE,
+                    "GRN " + grnNumber);
+
+            grandTotal =
+                    grandTotal.add(total);
+        }
+
+        Map<String,Object> result =
+                new HashMap<>();
+
+        result.put("grnNumber", grnNumber);
+
+        result.put("invoiceRef", invoiceRef);
+
+        result.put("totalAmount", grandTotal);
+
+        result.put("items", items.size());
+
+        return result;
+    }
+    private String generateGrnNumber() {
+
+        Long tenantId =
+                TenantContext.getTenantId();
+
+        Optional<Procurement> latest =
+                repo.findTopByTenant_IdAndGrnNumberIsNotNullOrderByIdDesc(
+                        tenantId);
+
+        int next = 1;
+
+        if (latest.isPresent()) {
+
+            String last =
+                    latest.get().getGrnNumber();
+
+            if (last != null &&
+                    last.contains("-")) {
+
+                String[] arr =
+                        last.split("-");
+
+                next =
+                        Integer.parseInt(arr[2]) + 1;
+            }
+        }
+
+        LocalDate now =
+                LocalDate.now();
+
+        String ym =
+                now.getYear() +
+                        String.format(
+                                "%02d",
+                                now.getMonthValue());
+
+        return "GRN-" +
+                ym +
+                "-" +
+                String.format("%04d", next);
+    }
+
+    @Override
+    public List<Map<String,Object>> getGrnSummary() {
+
+        Long tenantId =
+                TenantContext.getTenantId();
+
+        List<Procurement> procurements =
+                repo.findByTenant_IdAndGrnNumberIsNotNull(
+                        tenantId);
+
+        Map<String,List<Procurement>> grouped =
+                procurements.stream()
+                        .collect(
+                                java.util.stream.Collectors.groupingBy(
+                                        Procurement::getGrnNumber));
+
+        List<Map<String,Object>> result =
+                new ArrayList<>();
+
+        for (String grn : grouped.keySet()) {
+
+            List<Procurement> items =
+                    grouped.get(grn);
+
+            Procurement first =
+                    items.get(0);
+
+            int totalQty =
+                    items.stream()
+                            .mapToInt(Procurement::getQty)
+                            .sum();
+
+            BigDecimal totalAmount =
+                    items.stream()
+                            .map(Procurement::getTotalCost)
+                            .reduce(
+                                    BigDecimal.ZERO,
+                                    BigDecimal::add);
+
+            Map<String,Object> row =
+                    new HashMap<>();
+
+            row.put("grnNumber", grn);
+
+            row.put("supplier",
+                    first.getSupplier().getName());
+
+            row.put("invoiceRef",
+                    first.getInvoiceRef());
+
+            row.put(
+                    "manufactureDate",
+                    first.getManufactureDate());
+
+            row.put(
+                    "expiryDate",
+                    first.getExpiryDate());
+
+            row.put("items",
+                    items.size());
+
+            row.put("totalQty",
+                    totalQty);
+
+            row.put("amount",
+                    totalAmount);
+
+            row.put("date",
+                    first.getDate());
+
+            result.add(row);
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<Procurement> getGrnDetails(
+            String grnNumber) {
+
+        Long tenantId =
+                TenantContext.getTenantId();
+
+        return repo.findByTenant_IdAndGrnNumber(
+                tenantId,
+                grnNumber);
+    }
+
+    @Override
+    @Transactional
+    public void deleteGrn(
+            String grnNumber) {
+
+        Long tenantId =
+                TenantContext.getTenantId();
+
+        List<Procurement> rows =
+                repo.findByTenant_IdAndGrnNumber(
+                        tenantId,
+                        grnNumber);
+
+        repo.deleteAll(rows);
+    }
 }

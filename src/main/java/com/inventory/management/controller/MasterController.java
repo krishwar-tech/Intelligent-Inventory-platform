@@ -318,9 +318,7 @@ public class MasterController {
 		return ResponseEntity.ok(response);
 	}
 
-	// =========================
-// SHELF LIFE
-// =========================
+	// SHELF LIFE
 
 	@GetMapping("/shelf-lives")
 	public ResponseEntity<ApiResponse<List<Map<String, Object>>>> getShelfLives() {
