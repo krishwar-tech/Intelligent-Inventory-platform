@@ -87,6 +87,13 @@ public class ProductController {
                 body.get("unit") != null
                         ? body.get("unit").toString()
                         : "pcs");
+
+        p.setPackSize(
+                body.get("packSize") != null
+                        ? Integer.valueOf(
+                        body.get("packSize").toString())
+                        : 0);
+
         p.setStatus(ProductStatus.PENDING);
 
         if (body.get("categoryId") != null) {
@@ -235,46 +242,32 @@ public class ProductController {
             p.setBarcode(body.get("barcode").toString());
 
         if (body.get("price") != null)
-            p.setPrice(
-                    BigDecimal.valueOf(
-                            Double.parseDouble(
-                                    body.get("price").toString())));
+            p.setPrice(BigDecimal.valueOf(Double.parseDouble(body.get("price").toString())));
 
         if (body.get("mrp") != null)
-            p.setMrp(
-                    BigDecimal.valueOf(
-                            Double.parseDouble(
-                                    body.get("mrp").toString())));
+            p.setMrp(BigDecimal.valueOf(Double.parseDouble(body.get("mrp").toString())));
 
         if (body.get("unit") != null)
             p.setUnit(body.get("unit").toString());
 
-        Long categoryId =
-                body.get("categoryId") == null
-                        ? null
-                        : Long.valueOf(
-                        body.get("categoryId").toString());
+        // ✅ ADD THIS
+        if (body.get("packSize") != null)
+            p.setPackSize(Integer.valueOf(body.get("packSize").toString()));
 
-        Long subCategoryId =
-                body.get("subCategoryId") == null
-                        ? null
-                        : Long.valueOf(
-                        body.get("subCategoryId").toString());
+        Long categoryId = body.get("categoryId") == null
+                ? null : Long.valueOf(body.get("categoryId").toString());
 
-        Product updated =
-                service.update(
-                        id,
-                        p,
-                        categoryId,
-                        subCategoryId);
+        Long subCategoryId = body.get("subCategoryId") == null
+                ? null : Long.valueOf(body.get("subCategoryId").toString());
 
-        ApiResponse<Product> response =
-                new ApiResponse<>(
-                        true,
-                        "Product updated successfully",
-                        HttpStatus.OK.value(),
-                        updated,
-                        LocalDateTime.now());
+        Product updated = service.update(id, p, categoryId, subCategoryId);
+
+        ApiResponse<Product> response = new ApiResponse<>(
+                true,
+                "Product updated successfully",
+                HttpStatus.OK.value(),
+                updated,
+                LocalDateTime.now());
 
         return ResponseEntity.ok(response);
     }

@@ -246,21 +246,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product update(
-            Long id,
-            Product body,
-            Long categoryId,
-            Long subCategoryId) {
+    public Product update(Long id, Product body, Long categoryId, Long subCategoryId) {
 
         log.info("Updating product ID : {}", id);
 
         Product p = getById(id);
 
-        if (body.getBarcode() != null &&
-                !body.getBarcode().isBlank()) {
-
+        if (body.getBarcode() != null && !body.getBarcode().isBlank()) {
             validateBarcode(body.getBarcode(), id);
-
             p.setBarcode(body.getBarcode());
         }
 
@@ -276,29 +269,23 @@ public class ProductServiceImpl implements ProductService {
         if (body.getMrp() != null)
             p.setMrp(body.getMrp());
 
+        // ✅ ADD THIS
+        if (body.getPackSize() != null)
+            p.setPackSize(body.getPackSize());
+
         if (categoryId != null) {
-
-            Category category =
-                    categoryRepo.findById(categoryId)
-                            .orElseThrow();
-
+            Category category = categoryRepo.findById(categoryId).orElseThrow();
             p.setCategory(category);
         }
 
         if (subCategoryId != null) {
-
-            SubCategory sub =
-                    subCategoryRepo.findById(subCategoryId)
-                            .orElseThrow();
-
+            SubCategory sub = subCategoryRepo.findById(subCategoryId).orElseThrow();
             p.setSubCategory(sub);
         }
 
         Product updated = productRepo.save(p);
 
-        log.info(
-                "Product updated successfully : {}",
-                updated.getName());
+        log.info("Product updated successfully : {}", updated.getName());
 
         return updated;
     }

@@ -27,6 +27,9 @@ public class Product {
 
     private Integer stock = 0;
 
+    @Column(name = "pack_size")
+    private Integer packSize = 0;
+
     private Integer reorderLevel = 10;
 
     private Integer safetyStock = 5;
